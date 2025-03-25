@@ -12,6 +12,7 @@ struct TaskDetails: View {
     let task: Task
     
     var body: some View {
+        
         VStack {
             ZStack {
                 Image(task.image)

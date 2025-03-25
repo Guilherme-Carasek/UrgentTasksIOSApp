@@ -13,28 +13,28 @@ struct ContentView: View {
 
     
     var body: some View {
-        ScrollView {
-            NavigationStack {
-                List(taskList) { task in
-                    NavigationLink {
-                        TaskDetails(task: task)
-                    } label: {
-                        HStack {
-                            Image(task.image)
-                                .resizable()
-                                .scaledToFit( )
-                                .frame(width: 100, height: 100)
-                                .shadow(color: .white, radius: 1)
-                            Text(task.name)
-                                .fontWeight(.bold)
-                        }
+        
+        
+        NavigationStack {
+            List(taskList) { task in
+                NavigationLink {
+                    TaskDetails(task: task)
+                } label: {
+                    HStack {
+                        Image(task.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .shadow(color: .white, radius: 1)
+                        Text(task.name)
+                            .fontWeight(.bold)
                     }
                 }
-                .navigationTitle("Task List")
             }
-            .preferredColorScheme(.dark)
+            .navigationTitle("Task List")
         }
-    }
+        .preferredColorScheme(.dark)
+        }
      
 }
 
