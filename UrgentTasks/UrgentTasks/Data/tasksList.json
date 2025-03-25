@@ -1,1 +1,30 @@
-
+[
+    {
+        "id": 1,
+        "name": "Pole",
+        "description": "Pole Dance",
+        "image": ""
+        "isCompleted": false
+    },
+    {
+        "id": 2,
+        "name": "Climbing",
+        "description": "Rock Climbing",
+        "image": ""
+        "isCompleted": false
+    },
+    {
+        "id": 3,
+        "name": "Racing",
+        "description": "Motorbike Racing",
+        "image": ""
+        "isCompleted": false
+    },
+    {
+        "id": 4,
+        "name": "",
+        "description": "",
+        "image": ""
+        "isCompleted": false
+    },
+]

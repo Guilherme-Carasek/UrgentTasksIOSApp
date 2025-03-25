@@ -8,15 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var taskList = TaskList().allTasks
+
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView {
+            NavigationStack {
+                List(taskList) { task in
+                    NavigationLink {
+                        TaskDetails(task: task)
+                    } label: {
+                        HStack {
+                            Image(task.image)
+                                .resizable()
+                                .scaledToFit( )
+                                .frame(width: 100, height: 100)
+                                .shadow(color: .white, radius: 1)
+                            Text(task.name)
+                                .fontWeight(.bold)
+                        }
+                    }
+                }
+                .navigationTitle("Task List")
+            }
+            .preferredColorScheme(.dark)
         }
-        .padding()
     }
+     
 }
 
 #Preview {
