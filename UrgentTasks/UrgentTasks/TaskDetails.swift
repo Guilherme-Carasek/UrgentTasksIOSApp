@@ -10,6 +10,20 @@ import SwiftUI
 struct TaskDetails: View {
     
     let task: Task
+	let allCategories = CategoryList().allCategories
+	
+	
+	func getCategoryName() -> String{
+		for category in allCategories {
+			if category.id == task.category{
+				return category.name
+			}
+		}
+		return ""
+	}
+	
+	
+	
     
     var body: some View {
         
@@ -25,9 +39,20 @@ struct TaskDetails: View {
                     .overlay(Circle().stroke(Color.white, lineWidth: 4))
             }
             .padding()
-            Text(task.name)
-                .font(.title3)
-                .fontWeight(.bold)
+			HStack {
+				Text(task.name)
+								.font(.title3)
+								.fontWeight(.bold)
+				if(task.isCompleted){
+					Image(systemName: "checkmark")
+						.foregroundColor(.green)
+				} else{
+					Image(systemName: "xmark")
+						.foregroundColor(.red)
+				}
+			}
+            
+			Text(getCategoryName())
             Text(task.description)
                 .padding()
                 .multilineTextAlignment(.center)

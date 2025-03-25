@@ -12,30 +12,58 @@ struct ContentView: View {
     var taskList = TaskList().allTasks
 
     
-    var body: some View {
-        
-        
-        NavigationStack {
-            List(taskList) { task in
-                NavigationLink {
-                    TaskDetails(task: task)
-                } label: {
-                    HStack {
-                        Image(task.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .shadow(color: .white, radius: 1)
-                        Text(task.name)
-                            .fontWeight(.bold)
-                    }
-                }
-            }
-            .navigationTitle("Task List")
-        }
-        .preferredColorScheme(.dark)
-        }
-     
+	var body: some View {
+		
+		VStack{
+			
+			
+			NavigationStack {
+				HStack (spacing:60){
+					Spacer(minLength: 299)
+					NavigationLink{
+						Id()
+					} label: {
+						Image(systemName: "person.fill.questionmark")
+							.resizable()
+							.frame(width: 45, height: 45)
+					}
+					Spacer()
+				}
+				
+				List(taskList) { task in
+					NavigationLink {
+						TaskDetails(task: task)
+					} label: {
+						HStack {
+							Image(task.image)
+								.resizable()
+								.scaledToFit()
+								.frame(width: 100, height: 100)
+								.shadow(color: .white, radius: 1)
+							Text(task.name)
+								.fontWeight(.bold)
+							Spacer()
+							if(task.isCompleted){
+								Image(systemName: "checkmark")
+									.foregroundColor(.green)
+							} else{
+								Image(systemName: "xmark")
+									.foregroundColor(.red)
+							}
+						}
+					}
+				}
+				.navigationTitle("Task List")
+				NavigationLink { CreateTask()
+				} label:{
+					Text("Add new task")
+						.font(.title3)
+						.foregroundColor(.accentColor)
+				}
+			}
+			.preferredColorScheme(.dark)
+		}
+	}
 }
 
 #Preview {

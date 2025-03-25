@@ -28,5 +28,10 @@ struct TaskList {
         }
         
     }
+	
+	mutating func encodeJSONData (name:String, description:String, category:Int, image:String) {
+	//	newTask:Task = new Task()
+	}
+	
 }
 

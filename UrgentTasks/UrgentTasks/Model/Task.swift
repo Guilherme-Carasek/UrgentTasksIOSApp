@@ -9,6 +9,7 @@ import SwiftUI
 struct Task: Decodable, Identifiable {
     
     let id: Int
+	let category: Int
     let name: String
     let description: String
     let image: String
