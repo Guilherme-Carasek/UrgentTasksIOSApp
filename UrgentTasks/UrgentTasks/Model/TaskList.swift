@@ -29,8 +29,25 @@ struct TaskList {
         
     }
 	
-	mutating func encodeJSONData (name:String, description:String, category:Int, image:String) {
-	//	newTask:Task = new Task()
+	nonmutating func encodeJSONData (name:String, description:String, category:Int, image:String) {
+		
+		
+		
+		let newTask = Task(id: (allTasks.count + 1), category: category, name: name, description: description, image: image, isCompleted: false)
+		var newAllTasks = allTasks
+		newAllTasks.append(newTask)
+		
+		
+		do{
+			let data = try JSONEncoder().encode(allTasks)
+			let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+			let fileURL = documentsDirectory.appendingPathComponent("tasksList")
+			try data.write(to: fileURL)
+			print("gravado com sucesso")
+		} catch {
+			print("Erro ao gravar ao ficheiro JSON:\(error)")
+		}
+		
 	}
 	
 }

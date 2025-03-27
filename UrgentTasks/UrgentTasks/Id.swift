@@ -36,9 +36,12 @@ struct Id: View {
 				List{
 					Text("A ser anunciado")
 					Text("Pingvim")
+					Text("Opacity")
+					Text("etc")
 				}
-				.background(Color.red)
-			
+				.foregroundStyle(Color.white)
+				.cornerRadius(20)
+				
 				
 			}
 			.frame(width: 250)
@@ -46,9 +49,10 @@ struct Id: View {
 			.foregroundColor(.black)
 			.background(Color.orange)
 			.opacity(0.5)
-			.cornerRadius(50)
+			.cornerRadius(30)
 			
 		}
+		.preferredColorScheme(.dark)
 	}
 }
  

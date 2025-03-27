@@ -61,7 +61,7 @@ struct CreateTask: View {
 				.pickerStyle(.inline)
 			}
 			Button("Submit", action: {
-				print($newTaskName)
+				TaskList().encodeJSONData(name: newTaskName, description: description, category: selectedCategory, image: image)
 			})
 			
 		}.preferredColorScheme(.dark)

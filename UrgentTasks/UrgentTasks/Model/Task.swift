@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Task: Decodable, Identifiable {
+struct Task: Decodable, Identifiable, Encodable {
     
     let id: Int
 	let category: Int
