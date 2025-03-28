@@ -12,6 +12,8 @@ struct TaskDetails: View {
     let task: Task
 	let allCategories = CategoryList().allCategories
 	
+	let editViewVisible = false
+	
 	
 	func getCategoryName() -> String{
 		for category in allCategories {
@@ -56,6 +58,16 @@ struct TaskDetails: View {
             Text(task.description)
                 .padding()
                 .multilineTextAlignment(.center)
+			
+			Spacer()
+			NavigationLink {
+				EditTask()
+			} label: {
+				Button("Edit", action: {
+					
+			 })
+			}
+			
         }
         .preferredColorScheme(.dark)
     }
