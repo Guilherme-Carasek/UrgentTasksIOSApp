@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TaskList {
+ struct TaskList {
     var allTasks: [Task] = []
     
     init() {
@@ -30,7 +30,8 @@ struct TaskList {
     }
 	
 	nonmutating func encodeJSONData (name:String, description:String, category:Int, image:String) {
-		
+	
+        
 		
 		
 		let newTask = Task(id: (allTasks.count + 1), category: category, name: name, description: description, image: image, isCompleted: false)
@@ -51,6 +52,8 @@ struct TaskList {
 	//	}
 		
 	}
+    
+    
 	
 }
 

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct EditTask: View  {
-	@State var newTaskName: String = ""
+    @State var newTaskName: String = ""
 	@State var selectedCategory: Int = 1
 	@State var description: String = ""
 	@State var image: String = ""
 	
-	
-	var categoryList = CategoryList().allCategories
+    let task: Task
+    var categoryList = CategoryList().allCategories
 	
 	
 	
@@ -38,7 +38,7 @@ struct EditTask: View  {
 				TextField ("description", text: $description)
 			}
 			
-			Section (header: Text("image")){
+			Section (header: Text("Image")){
 				Picker("image", selection: $image){
 					Image("Boulder")
 						.resizable()

@@ -18,13 +18,13 @@ struct Id: View {
 						Text("Filipa Araújo")
 							.font(.title2)
 							.fontWeight(.bold)
-						Text("Autoavaliação: 17")
+						Text("Autoavaliação: 16")
 					}
 					VStack{
 						Text("Guilherme Carasek")
 							.font(.title2)
 							.fontWeight(.bold)
-						Text("Autoavaliação: 12")
+						Text("Autoavaliação: 18")
 						
 					}
 				}

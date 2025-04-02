@@ -34,8 +34,7 @@ struct TaskDetails: View {
                 Image(task.image)
                     .resizable()
                     .scaledToFill()
-                    .frame(height:400)
-                    .offset(y:50)
+                    .frame(height:300)
                     .clipped()
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 4))
@@ -59,14 +58,29 @@ struct TaskDetails: View {
                 .padding()
                 .multilineTextAlignment(.center)
 			
+            
 			Spacer()
-			NavigationLink {
-				EditTask()
-			} label: {
-				Button("Edit", action: {
-					
-			 })
-			}
+            
+            HStack {
+            
+                NavigationLink {
+                    EditTask(task:task)
+                            } label: {
+                                Button("Edit", action: {
+                                    
+                             })
+                                .font(.title3)
+                                .foregroundColor(.accentColor)                            }
+
+                
+                Button("Remove", action: {
+                    ContentView().removeTask(task: task)
+                })
+                .font(.title3)
+                .foregroundColor(.accentColor)
+
+            }
+			
 			
         }
         .preferredColorScheme(.dark)
